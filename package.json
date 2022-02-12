@@ -1,0 +1,25 @@
+{
+  "name": "fileupload",
+  "version": "1.0.0",
+  "description": "csv processor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kush1912/Electron.git"
+  },
+  "keywords": [
+    "electron"
+  ],
+  "author": "Ajay Kushwaha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kush1912/Electron/issues"
+  },
+  "homepage": "https://github.com/kush1912/Electron#readme",
+  "dependencies": {
+    "electron": "^17.0.0"
+  }
+}
