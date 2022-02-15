@@ -7,11 +7,9 @@ function createWindow () {
 let win = new BrowserWindow({
 	width: 800,
 	height: 600,
-	// webPreferences: {
-	// nodeIntegration: true
-	// }
-    webPreferences: {
-        preload: path.join(__dirname, 'preload.js')
+	webPreferences: {
+        preload: path.join(__dirname, 'preload.js'),
+        nodeIntegration: true
       }
 })
 
@@ -19,7 +17,7 @@ let win = new BrowserWindow({
 win.loadFile('index.html')
 
 // Open the DevTools.
-// win.webContents.openDevTools()
+win.webContents.openDevTools()
 
 win.on('closed',()=>{
     win=null;

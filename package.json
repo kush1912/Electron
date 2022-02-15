@@ -23,7 +23,10 @@
   "homepage": "https://github.com/kush1912/Electron#readme",
   "dependencies": {
     "axios": "^0.26.0",
-    "nodemon": "^2.0.15"
+    "browserify": "^17.0.0",
+    "nodemon": "^2.0.15",
+    "require": "^2.4.20",
+    "requirejs": "^2.3.6"
   },
   "devDependencies": {
     "electron": "^17.0.0"

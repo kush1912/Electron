@@ -1,1 +1,3 @@
-command to run: npm start (electron <filename>)
+1. command to run: npm start (electron <filename>)
+2. Require doesmn't work in client side Javascript
+    - 
