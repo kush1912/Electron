@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -7,17 +7,18 @@
 		<!-- <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script> -->
 </head>
 <body>
-	<h1>File Upload!</h1> 
-	Upload your CSV files here.
-	<button id="upload">Upload Files</button>
-	<input id="fileUpload" type="file" name="filefield" multiple="multiple">
-
-	<!-- <form enctype='multipart/form-data' method='POST' action='submitFormTo.php'> 
-		<input type='file' name='files[]' multiple />
-		<button type='submit'>Submit</button>
-	</form> -->
-
-	<!-- Adding Individual Renderer Process JS File -->
+	<!-- <form name="uploadForm"> -->
+	  <div>
+		<input id="uploadInput" type="file" name="myFiles" multiple>
+		selected files: <span id="fileNum">0</span>;
+		total size: <span id="fileSize">0</span>
+	  </div>
+	  <div>
+		  <button id="process">Process</button>
+	  </div>
+	<!-- </form> -->
+  
 	<script src="index.js"></script>
-</body>
+  </body>
+  
 </html>
