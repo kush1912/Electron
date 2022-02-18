@@ -19,7 +19,7 @@ let win = new BrowserWindow({
 win.loadFile('src/index.html')
 
 // Open the DevTools.
-win.webContents.openDevTools()
+// win.webContents.openDevTools()
 
 win.on('closed',()=>{
     win=null;

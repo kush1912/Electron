@@ -34,6 +34,7 @@ document.getElementById('uploadInput').addEventListener('change', function uploa
 	}
 	document.getElementById("fileNum").innerHTML = uploadedfiles.length;
 	document.getElementById("fileSize").innerHTML = unitConverter(tsize);
+	document.getElementById("fileNames").innerHTML = fileNames;
 });
 
 //function to convert units of file size
@@ -68,6 +69,8 @@ function processFiles() {
 				counter++;
 			},
 			complete:function(){
+				
+				document.getElementById("message").innerHTML = "Your files are Uploaded Successfully!";
 				downloadCSV(resultFile);
 				console.log('All Done!');
 				resultFile=[];

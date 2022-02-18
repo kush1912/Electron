@@ -5,15 +5,49 @@
 	<meta http-equiv="Content-Security-Policy"
 		content="script-src 'self' 'unsafe-inline';" />
 </head>
+<style>
+	.button {
+		background-color: #4CAF50; /* Green */
+		border: none;
+		color: white;
+		padding: 10px 20px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		border-radius:10px;
+		margin:20px;
+	}
+
+	input[type="file"] {
+		display: none;
+	}
+	.custom-file-upload {
+		border: 1px solid #ccc;
+		display: inline-block;
+		padding: 6px 12px;
+		cursor: pointer;
+		margin: 20px;
+	}
+</style>
+
 <body>
-	  <div>
-		<input id="uploadInput" type="file" name="myFiles" accept=".csv" multiple>
-		selected files: <span id="fileNum">0</span>;
-		total size: <span id="fileSize">0</span>
-	  </div>
-	  <div>
-		  <button id="process">Process</button>
-	  </div>
+	<div>
+      	<label for="uploadInput" class="custom-file-upload">
+	  		<i class="fa fa-cloud-upload"></i> Custom Upload
+  		</label>
+   		<input id="uploadInput" type="file" name="myFiles" accept=".csv" multiple>
+		<br/>
+		Selected files: <span id="fileNum">0</span>
+		<br/>
+		<span id="fileNames"></span>
+		<br/>
+		  Total size: <span id="fileSize">0</span>
+		</div>
+		<div>
+			<button class="button" id="process">Process</button>
+		</div>
+		<h3 id="message"></h3>
 	<script src="index.js"></script>
   </body>
   
