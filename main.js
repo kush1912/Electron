@@ -9,12 +9,14 @@ let win = new BrowserWindow({
 	height: 600,
 	webPreferences: {
         preload: path.join(__dirname, 'preload.js'),
-        nodeIntegration: true
+        nodeIntegration: true,
+		contextIsolation: false,
+		enableRemoteModule: true
       }
 })
 
 // Load the index.html of the app.
-win.loadFile('index.html')
+win.loadFile('src/index.html')
 
 // Open the DevTools.
 win.webContents.openDevTools()

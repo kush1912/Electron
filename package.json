@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "csv processor",
   "main": "main.js",
-  "start": "npm start",
   "scripts": {
-    "start": "electron main",
+    "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,9 +21,9 @@
   },
   "homepage": "https://github.com/kush1912/Electron#readme",
   "dependencies": {
-    "axios": "^0.26.0",
-    "browserify": "^17.0.0",
-    "nodemon": "^2.0.15",
+    "@aws-sdk/client-s3": "^3.51.0",
+    "aws-sdk": "^2.1076.0",
+    "papaparse": "^5.3.1",
     "requirejs": "^2.3.6"
   },
   "devDependencies": {
