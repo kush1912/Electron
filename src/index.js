@@ -69,10 +69,9 @@ function processFiles() {
 				counter++;
 			},
 			complete:function(){
-				
-				document.getElementById("message").innerHTML = "Your files are Uploaded Successfully!";
 				downloadCSV(resultFile);
 				console.log('All Done!');
+				document.getElementById("message").innerHTML = "Your files are Uploaded Successfully!";
 				resultFile=[];
 			}
 		})
