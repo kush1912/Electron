@@ -1,6 +1,0 @@
-1. command to run: npm start (electron <filename>)
-2. Require doesmn't work in client side Javascript
-    - 
-
-Javascript cannot read csv files by default. We need a parser
-
