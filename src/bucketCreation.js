@@ -1,4 +1,5 @@
 const aws = require(aws-sdk);
+// Please Enter your KeyId and Secret KEY here
 const KEY_ID="";
 const SECRET_KEY="";
 const BUCKETNAME = "CSVBUCKET"

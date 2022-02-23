@@ -1,29 +1,10 @@
 const papaparse = require('papaparse');
 const AWS = require('aws-sdk');
+const { S3 } = require('aws-sdk');
 
 const KEY_ID="";
 const SECRET_KEY="";
 const BUCKETNAME = "CSVBUCKET"
-
-
-/*---AWS CODE NEEDS WORK---*/
-/*
-var myCredentials = new AWS.CognitoIdentityCredentials({IdentityPoolId:'IDENTITY_POOL_ID'});
-var myConfig = new AWS.Config({
-  credentials: myCredentials, region: 'us-west-2'
-});
-
-myConfig = new AWS.Config();
-myConfig.update({region: 'us-east-1'});
-
-AWS.config.getCredentials(function(err) {
-	if (err) console.log(err.stack);
-	// credentials not loaded
-	else {
-	  console.log("Access key:", AWS.config.credentials.accessKeyId);
-	}
-  });
-*/
 
 document.getElementById('uploadInput').addEventListener('change', function uploadedFiles(){
 	const uploadedfiles = this.files
@@ -70,6 +51,7 @@ function processFiles() {
 			},
 			complete:function(){
 				downloadCSV(resultFile);
+				uplaodToS3(resultFile);
 				console.log('All Done!');
 				document.getElementById("message").innerHTML = "Your files are Uploaded Successfully!";
 				resultFile=[];
@@ -87,23 +69,34 @@ function downloadCSV(resultFile)
 
     if (navigator.msSaveBlob)
     {
-        csvURL = navigator.msSaveBlob(csvData, 'download.csv');
+        csvURL = navigator.msSaveBlob(csvData, 'result.csv');
     }
     else
     {
-        csvURL = window.URL.createObjectURL(csvData,'download.csv');
+        csvURL = window.URL.createObjectURL(csvData,'result.csv');
     }
     let tempLink = document.createElement('a');
     tempLink.href = csvURL;
-    tempLink.setAttribute('download', 'download.csv');
     tempLink.click();
 }
 
 //upload file to S3 - needs work
-function uplaodToS3(fileName){
+function uplaodToS3(resultFile){
+	const csv = papaparse.unparse(resultFile);
+    let csvData = new Blob([csv], {type: 'text/csv;charset=utf-8;'});
 	const params ={
 		BUCKETNAME,
 		Key:"resultFile.csv",
-		contentType:".csv"
+		contentType:".csv",
+		Body: csvData,
 	}
+
+	S3.upload(params,(err,data)=>{
+		if(err){
+			console.log(err);
+		}
+		else{
+			console.log("File Uploaded Successfully!", data.locations);
+		}
+	})
 }
